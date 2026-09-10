@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Control Plane | Agentic AI Academy</title>
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<body>
+<div class="deck" id="deck">
+  <div class="slide active bg-purple" id="slide-7">
+    <div class="beam"></div>
+    <div class="beam-2"></div>
+    <div class="logo" aria-label="Celerity logo" role="img"><span style="color:#fff; font-family:'Segoe UI', Arial, sans-serif; font-size:30px; font-weight:700; letter-spacing:-1px;">Celerity</span></div>
+    <div class="slide-content" style="max-width:1040px;">
+      <div class="label">Governance</div>
+      <h2>From building agents to <span>controlling them</span></h2>
+      <div class="divider"></div>
+      <p class="subtitle" style="font-size:17px; margin-bottom:22px;">The Agentic Control Plane gives administrators a centralized view of the agent fleet, its quality and reliability, and the controls applied to assets in production.</p>
+      <div class="two-col" style="gap:20px;">
+        <div class="card accent">
+          <span class="card-icon">&#x1F6E1;&#xFE0F;</span>
+          <h3>Protect sensitive data</h3>
+          <p>Apply the right controls around database-connected agents, including PII masking and SQL sanitization, before sensitive inputs reach models or data systems.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">&#x1F4CA;</span>
+          <h3>See what needs attention</h3>
+          <p>Use fleet dashboards for quality, reliability, security, and risk to identify failing agents, degraded responses, unusual activity, and missing controls.</p>
+        </div>
+      </div>
+      <div class="flow" style="margin-top:20px;">
+        <div class="flow-box"><div class="fb-icon">&#x1F4BB;</div><div class="fb-label">Build</div><div class="fb-sub">Bob + MCPs</div></div>
+        <div class="flow-arrow">&#8594;</div>
+        <div class="flow-box"><div class="fb-icon">&#x1F6E1;&#xFE0F;</div><div class="fb-label">Control</div><div class="fb-sub">Policies + controls</div></div>
+        <div class="flow-arrow">&#8594;</div>
+        <div class="flow-box highlight"><div class="fb-icon">&#x1F4C8;</div><div class="fb-label">Operate</div><div class="fb-sub">Monitor + improve</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,0.5); font-size:11px; margin-top:18px;">Availability and control coverage vary by deployment and region. See the official Agentic Control Plane documentation for current support and configuration details.</p>
+      <p style="font-size:12px; margin-top:8px;"><a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=operating-agentic-control-plane" target="_blank" rel="noopener noreferrer" style="color:var(--orange); text-decoration:underline;">IBM Docs: Agentic Control Plane</a> &nbsp; <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=operating-governing-assets-ai-gateway" target="_blank" rel="noopener noreferrer" style="color:var(--orange); text-decoration:underline;">AI Gateway and asset controls</a></p>
+    </div>
+    <div class="tagline">Transforming Technology. Empowering People.</div>
+  </div>
+</div>
+<nav class="nav" aria-label="Presentation navigation">
+  <button type="button" id="btn-prev" title="Previous slide" aria-label="Previous slide">&#8592;</button>
+  <span class="progress">8 / 12</span>
+  <button type="button" id="btn-next" title="Next slide" aria-label="Next slide">&#8594;</button>
+</nav>
+<script>
+  (function () {
+    var previousPage = 'slide-07.html';
+    var nextPage = 'slide-09.html';
+    function goTo(page) { window.location.href = page; }
+    document.getElementById('btn-prev').addEventListener('click', function () { goTo(previousPage); });
+    document.getElementById('btn-next').addEventListener('click', function () { goTo(nextPage); });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') goTo(previousPage);
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') goTo(nextPage);
+    });
+  })();
+</script>
+</body>
+</html>

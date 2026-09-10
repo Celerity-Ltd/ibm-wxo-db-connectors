@@ -1,0 +1,441 @@
+
+  :root {
+    --purple:   #30053a;
+    --lilac:    #6633fc;
+    --pink:     #fb4dc3;
+    --orange:   #fc9634;
+    --magenta:  #fc0266;
+    --mint:     #64fcc9;
+    --soft-pink:#fbd0ee;
+    --white:    #ffffff;
+    --black:    #000000;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%; height: 100%;
+    font-family: 'Founders Grotesk', 'Aptos', 'Segoe UI', system-ui, sans-serif;
+    background: #0a0010;
+    overflow: hidden;
+  }
+
+  /* ── DECK CONTAINER ── */
+  .deck {
+    width: 100vw; height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── SLIDES ── */
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 140px 100px 80px;
+    opacity: 0;
+    pointer-events: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: opacity 0.45s ease;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* ── BEAM DECORATION ── */
+  .beam {
+    position: absolute;
+    top: -120px; right: -100px;
+    width: 520px; height: 950px;
+    background: linear-gradient(145deg, var(--pink) 0%, var(--orange) 100%);
+    transform: rotate(-18deg);
+    transform-origin: top right;
+    opacity: 0.18;
+    z-index: 0;
+    border-radius: 8px;
+  }
+  .beam-2 {
+    position: absolute;
+    top: -60px; right: 60px;
+    width: 280px; height: 800px;
+    background: linear-gradient(145deg, var(--pink) 0%, transparent 100%);
+    transform: rotate(-18deg);
+    transform-origin: top right;
+    opacity: 0.10;
+    z-index: 0;
+    border-radius: 8px;
+  }
+
+  /* ── LOGO ── */
+  .logo {
+    position: absolute;
+    top: 40px; left: 80px;
+    width: 160px;
+    z-index: 10;
+  }
+  .logo svg { width: 100%; height: auto; }
+
+  /* ── CONTENT ── */
+  .slide-content {
+    position: relative;
+    z-index: 5;
+    max-width: 860px;
+  }
+
+  .label {
+    display: inline-block;
+    color: var(--pink);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-left: 3px solid var(--pink);
+    padding-left: 12px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    color: var(--white);
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  h1 span { color: var(--pink); }
+
+  h2 {
+    color: var(--white);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  h2 span { color: var(--pink); }
+
+  .subtitle {
+    color: rgba(255,255,255,0.75);
+    font-size: 22px;
+    line-height: 1.55;
+    max-width: 700px;
+    margin-bottom: 36px;
+  }
+
+  .meta {
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* ── CARDS GRID ── */
+  .cards {
+    display: grid;
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .cards-2 { grid-template-columns: 1fr 1fr; }
+  .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 28px 28px;
+  }
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .card h3 {
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card p {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .card.accent {
+    border-color: var(--pink);
+    background: rgba(251,77,195,0.08);
+  }
+
+  /* ── LIST ── */
+  .bullet-list {
+    list-style: none;
+    margin-top: 8px;
+  }
+  .bullet-list li {
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 8px; height: 8px;
+    background: var(--pink);
+    border-radius: 50%;
+  }
+  .bullet-list li strong { color: var(--white); }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 24px;
+    flex-wrap: nowrap;
+  }
+  .flow-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .flow-box.highlight {
+    border-color: var(--pink);
+    background: rgba(251,77,195,0.12);
+  }
+  .flow-box .fb-icon { font-size: 22px; margin-bottom: 6px; }
+  .flow-box .fb-label { color: var(--white); font-size: 12px; font-weight: 700; line-height: 1.3; }
+  .flow-box .fb-sub { color: rgba(255,255,255,0.45); font-size: 10px; margin-top: 4px; }
+  .flow-arrow {
+    color: var(--orange);
+    font-size: 22px;
+    padding: 0 8px;
+    flex-shrink: 0;
+  }
+
+  /* ── TWO COLUMN ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 8px;
+  }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--pink);
+    border-radius: 8px;
+    padding: 20px 22px;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    white-space: pre;
+    overflow: hidden;
+  }
+  .code-block .c-key   { color: var(--pink); }
+  .code-block .c-val   { color: var(--mint); }
+  .code-block .c-str   { color: var(--orange); }
+  .code-block .c-cmt   { color: rgba(255,255,255,0.3); }
+
+  /* ── CHALLENGE PILLS ── */
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .challenge-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .challenge-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .challenge-item h4 { color: var(--white); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .challenge-item p  { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.5; }
+
+  /* ── OUTCOME STAT ── */
+  .stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    flex: 1;
+    min-width: 160px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 24px 20px;
+    border-top: 3px solid var(--pink);
+    text-align: center;
+  }
+  .stat .stat-val {
+    color: var(--pink);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat .stat-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* ── BACKGROUNDS ── */
+  .bg-purple  { background: var(--purple); }
+  .bg-dark    { background: #0d0016; }
+  .bg-deeper  { background: #070010; }
+  .bg-closing { background: linear-gradient(135deg, var(--purple) 0%, #1a003a 100%); }
+
+  /* ── TAGLINE ── */
+  .tagline {
+    color: rgba(255,255,255,0.35);
+    font-size: 13px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 10;
+    margin-top: 40px;
+  }
+
+  /* ── PILL BADGE ── */
+  .badge {
+    display: inline-block;
+    background: rgba(251,77,195,0.15);
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+
+  /* ── NAVIGATION ── */
+  .nav {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    padding: 10px 20px;
+    backdrop-filter: blur(8px);
+  }
+  .nav button {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    font-family: inherit;
+  }
+  .nav button:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+  .nav .progress {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    min-width: 60px;
+    text-align: center;
+  }
+  .nav .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .nav .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav .dot.active {
+    background: var(--pink);
+    transform: scale(1.4);
+  }
+
+  /* ── DIVIDER LINE ── */
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--pink), var(--orange));
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  /* ── QUOTE BLOCK ── */
+  .quote {
+    border-left: 3px solid var(--pink);
+    padding: 16px 24px;
+    background: rgba(251,77,195,0.07);
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+  .quote p {
+    color: rgba(255,255,255,0.85);
+    font-size: 18px;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* Keep the deck usable on smaller screens and when a slide is deep-linked. */
+  @media (max-width: 800px) {
+    html, body { overflow: hidden; }
+    .slide {
+      justify-content: flex-start;
+      padding: 88px 24px 120px;
+      overflow-y: auto;
+    }
+    .logo { top: 24px; left: 24px; width: 118px; }
+    .tagline { display: none; }
+    .slide-content,
+    .slide-content[style] { max-width: none !important; width: 100%; }
+    h1 { font-size: clamp(36px, 10vw, 52px); }
+    h2 { font-size: clamp(30px, 8vw, 40px); }
+    .subtitle { font-size: 18px; }
+    .cards-2, .cards-3, .two-col, .challenge-grid { grid-template-columns: 1fr; }
+    .flow { align-items: stretch; flex-direction: column; }
+    .flow-arrow { padding: 2px 0; text-align: center; transform: rotate(90deg); }
+    .flow-box { width: 100%; }
+    .slide-content > div[style*="display:flex"] { flex-direction: column; gap: 24px !important; }
+    .nav { bottom: 16px; max-width: calc(100vw - 32px); padding: 8px 12px; }
+    .nav .dots { display: none; }
+    .nav .progress { min-width: 54px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide, .nav button, .nav .dot { transition: none; }
+  }
+
+
+/* Each page contains one visible slide. */
+.slide { opacity: 1; pointer-events: all; }
