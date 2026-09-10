@@ -10,9 +10,9 @@
   #slide-6 { padding: 90px 100px 28px; }
   #slide-6 .label { margin-bottom: 12px; }
   #slide-6 h2 { font-size: 32px; margin-bottom: 10px; }
-  #slide-6 .challenge-grid { gap: 10px; margin-top: 4px; }
-  #slide-6 .challenge-item { padding: 10px 14px; gap: 10px; }
-  #slide-6 .challenge-icon { font-size: 18px; }
+  #slide-6 .challenge-grid { gap: 12px; margin-top: 4px; }
+  #slide-6 .challenge-item { padding: 14px 16px; gap: 6px; }
+  #slide-6 .challenge-icon { font-size: 20px; }
   #slide-6 .challenge-item h4 { font-size: 13px; margin-bottom: 2px; }
   #slide-6 .challenge-item p { font-size: 11.5px; line-height: 1.35; }
   #slide-6 .tagline { margin-top: 10px; }
@@ -32,11 +32,11 @@
       <div class="divider"></div>
       <div class="challenge-grid">
 
-        <div class="challenge-item" style="grid-column:1/-1;">
+        <div class="challenge-item">
           <div class="challenge-icon">&#x1F50C;</div>
-          <div style="flex:1;">
+          <div>
             <h4>On-premises database connectivity</h4>
-            <p>watsonx Orchestrate runs in IBM Cloud. Agents calling on-prem databases are blocked by firewalls by default. We resolved this by whitelisting the platform's published <strong style="color:var(--white);">outbound IP ranges</strong> on the relevant ports (e.g. 50000 for Db2, 5432 for PostgreSQL) at the customer's network perimeter.</p>
+            <p>watsonx Orchestrate runs in IBM Cloud, so firewalls block agents from reaching on-prem databases by default.</p>
             <p style="margin-top:8px;">
               <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=notes-regional-availability-outbound-ip-addresses"
                  style="color:var(--orange); font-size:12px; text-decoration:underline; word-break:break-all;"
@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div class="challenge-item" style="grid-column:1/-1;">
+        <div class="challenge-item">
           <div class="challenge-icon">&#x1F6E1;&#xFE0F;</div>
           <div>
             <h4>Access boundaries</h4>

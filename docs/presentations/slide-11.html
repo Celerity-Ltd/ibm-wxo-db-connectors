@@ -9,8 +9,8 @@
   /* Compact layout so slide 11 fits without scrolling */
   #slide-9 { padding: 90px 100px 28px; }
   #slide-9 h2 { font-size: 32px; margin-bottom: 10px; }
-  #slide-9 .two-col { margin-top: 4px; }
-  #slide-9 .card { padding: 16px 18px !important; margin-bottom: 10px !important; }
+  #slide-9 .cards { margin-top: 4px; }
+  #slide-9 .card { padding: 16px 18px !important; }
   #slide-9 .card-icon { font-size: 20px; margin-bottom: 6px; }
   #slide-9 .card h3 { font-size: 14px; margin-bottom: 4px; }
   #slide-9 .card p { font-size: 12px; line-height: 1.4; }
@@ -30,30 +30,26 @@
       <h2>From agents to <span>deterministic workflows</span></h2>
       <div class="divider"></div>
       <p class="subtitle" style="font-size:15px; margin-bottom:14px;">The same database connectivity we built here was taken further in a customer PoC – pairing AI agents with structured, deterministic workflows to solve a real-world ordering problem end to end.</p>
-      <div class="two-col" style="gap:24px;">
-        <div>
-          <div class="card accent" style="margin-bottom:10px;">
-            <span class="card-icon">&#x1F4CB;</span>
-            <h3>The problem</h3>
-            <p>The customer's ordering process spanned multiple on-prem databases – product catalogue, inventory, and ERP – with no single system of record. Staff were manually reconciling records across systems to process and track orders.</p>
-          </div>
-          <div class="card" style="border-color:var(--orange); background:rgba(252,150,52,0.07);">
-            <span class="card-icon">&#x1F50C;</span>
-            <h3>The database layer</h3>
-            <p>We reused the same outbound IP whitelisting and <code style="color:var(--pink); font-size:12px;">@expect_credentials</code> pattern to give the workflow secure, audited read/write access to all three systems from watsonx Orchestrate.</p>
-          </div>
+      <div class="cards cards-2" style="gap:16px 24px; grid-auto-rows:1fr;">
+        <div class="card">
+          <span class="card-icon">&#x1F4CB;</span>
+          <h3>The problem</h3>
+          <p>The customer's ordering process spanned multiple on-prem databases – product catalogue, inventory, and ERP – with no single system of record. Staff were manually reconciling records across systems to process and track orders.</p>
         </div>
-        <div>
-          <div class="card" style="margin-bottom:10px;">
-            <span class="card-icon">&#x2699;&#xFE0F;</span>
-            <h3>Deterministic workflows</h3>
-            <p>Rather than leaving every step to an LLM, we authored <strong style="color:var(--white);">structured flows</strong> in watsonx Orchestrate – guaranteed execution order, business-rule validation at each step, and full auditability. The AI agent handled natural language intake and exception routing; the workflow handled the process logic.</p>
-          </div>
-          <div class="card">
-            <span class="card-icon">&#x2705;</span>
-            <h3>What it unlocked</h3>
-            <p>A customer service agent that could check stock, raise a purchase order, and update the ERP record – all from a single conversational request – with every action traceable back to a structured log.</p>
-          </div>
+        <div class="card">
+          <span class="card-icon">&#x2699;&#xFE0F;</span>
+          <h3>Deterministic workflows</h3>
+          <p>Rather than leaving every step to an LLM, we authored <strong style="color:var(--white);">structured flows</strong> in watsonx Orchestrate – guaranteed execution order, business-rule validation at each step, and full auditability. The AI agent handled natural language intake and exception routing; the workflow handled the process logic.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">&#x1F50C;</span>
+          <h3>The database layer</h3>
+          <p>We reused the same outbound IP whitelisting and <code style="color:var(--pink); font-size:12px;">@expect_credentials</code> pattern to give the workflow secure, audited read/write access to all three systems from watsonx Orchestrate.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">&#x2705;</span>
+          <h3>What it unlocked</h3>
+          <p>A customer service agent that could check stock, raise a purchase order, and update the ERP record – all from a single conversational request – with every action traceable back to a structured log.</p>
         </div>
       </div>
     </div>

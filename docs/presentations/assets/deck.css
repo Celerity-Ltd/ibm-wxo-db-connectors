@@ -208,8 +208,9 @@
   .bullet-list li::before {
     content: '';
     position: absolute;
-    left: 0; top: 50%;
-    transform: translateY(-50%);
+    left: 0;
+    /* offset from the padding-box top so the dot tracks the first line, not the wrapped block */
+    top: calc(0.8em + 4px);
     width: 8px; height: 8px;
     background: var(--pink);
     border-radius: 50%;
@@ -235,22 +236,23 @@
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 10px;
-    padding: 16px 20px;
+    padding: 14px 10px;
     text-align: center;
-    min-width: 130px;
-    flex-shrink: 0;
+    flex: 0 0 128px;
+    width: 128px;
+    height: 126px;
   }
   .flow-box.highlight {
     border-color: var(--pink);
     background: rgba(251,77,195,0.12);
   }
-  .flow-box .fb-icon { font-size: 22px; margin-bottom: 6px; }
-  .flow-box .fb-label { color: var(--white); font-size: 12px; font-weight: 700; line-height: 1.3; }
-  .flow-box .fb-sub { color: rgba(255,255,255,0.45); font-size: 10px; margin-top: 4px; }
+  .flow-box .fb-icon { font-size: 20px; margin-bottom: 6px; }
+  .flow-box .fb-label { color: var(--white); font-size: 12px; font-weight: 700; line-height: 1.3; overflow-wrap: break-word; }
+  .flow-box .fb-sub { color: rgba(255,255,255,0.45); font-size: 10px; margin-top: 4px; overflow-wrap: break-word; }
   .flow-arrow {
     color: var(--orange);
-    font-size: 22px;
-    padding: 0 8px;
+    font-size: 18px;
+    padding: 0 4px;
     flex-shrink: 0;
   }
 
@@ -287,25 +289,27 @@
   .code-block .c-str   { color: var(--orange); }
   .code-block .c-cmt   { color: rgba(255,255,255,0.3); }
 
-  /* ── CHALLENGE PILLS ── */
+  /* ── CHALLENGE CARDS (matches .card styling used elsewhere in the deck) ── */
   .challenge-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
     gap: 16px;
     margin-top: 8px;
   }
   .challenge-item {
     display: flex;
-    gap: 14px;
+    flex-direction: column;
     align-items: flex-start;
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    padding: 18px 20px;
-    border: 1px solid rgba(255,255,255,0.08);
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px 22px;
+    border: 1px solid rgba(255,255,255,0.1);
   }
-  .challenge-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-  .challenge-item h4 { color: var(--white); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-  .challenge-item p  { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.5; }
+  .challenge-icon { font-size: 26px; }
+  .challenge-item h4 { color: var(--white); font-size: 15px; font-weight: 700; }
+  .challenge-item p  { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.5; }
 
   /* ── OUTCOME STAT ── */
   .stats {
