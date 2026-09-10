@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Customer POC | Agentic AI Academy</title>
 <link rel="stylesheet" href="assets/deck.css">
+<style>
+  /* Compact layout so slide 11 fits without scrolling */
+  #slide-9 { padding: 90px 100px 28px; }
+  #slide-9 h2 { font-size: 32px; margin-bottom: 10px; }
+  #slide-9 .two-col { margin-top: 4px; }
+  #slide-9 .card { padding: 16px 18px !important; margin-bottom: 10px !important; }
+  #slide-9 .card-icon { font-size: 20px; margin-bottom: 6px; }
+  #slide-9 .card h3 { font-size: 14px; margin-bottom: 4px; }
+  #slide-9 .card p { font-size: 12px; line-height: 1.4; }
+  #slide-9 .tagline { margin-top: 10px; }
+</style>
 </head>
 <body>
 <div class="deck" id="deck">
@@ -18,10 +29,10 @@
       <div class="label">Customer PoC</div>
       <h2>From agents to <span>deterministic workflows</span></h2>
       <div class="divider"></div>
-      <p class="subtitle" style="font-size:17px; margin-bottom:24px;">The same database connectivity we built here was taken further in a customer PoC – pairing AI agents with structured, deterministic workflows to solve a real-world ordering problem end to end.</p>
-      <div class="two-col" style="gap:36px;">
+      <p class="subtitle" style="font-size:15px; margin-bottom:14px;">The same database connectivity we built here was taken further in a customer PoC – pairing AI agents with structured, deterministic workflows to solve a real-world ordering problem end to end.</p>
+      <div class="two-col" style="gap:24px;">
         <div>
-          <div class="card accent" style="margin-bottom:16px;">
+          <div class="card accent" style="margin-bottom:10px;">
             <span class="card-icon">&#x1F4CB;</span>
             <h3>The problem</h3>
             <p>The customer's ordering process spanned multiple on-prem databases – product catalogue, inventory, and ERP – with no single system of record. Staff were manually reconciling records across systems to process and track orders.</p>
@@ -33,7 +44,7 @@
           </div>
         </div>
         <div>
-          <div class="card" style="margin-bottom:16px;">
+          <div class="card" style="margin-bottom:10px;">
             <span class="card-icon">&#x2699;&#xFE0F;</span>
             <h3>Deterministic workflows</h3>
             <p>Rather than leaving every step to an LLM, we authored <strong style="color:var(--white);">structured flows</strong> in watsonx Orchestrate – guaranteed execution order, business-rule validation at each step, and full auditability. The AI agent handled natural language intake and exception routing; the workflow handled the process logic.</p>
