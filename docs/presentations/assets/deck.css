@@ -1,12 +1,13 @@
 
   :root {
-    --purple:   #30053a;
-    --lilac:    #6633fc;
-    --pink:     #fb4dc3;
-    --orange:   #fc9634;
-    --magenta:  #fc0266;
-    --mint:     #64fcc9;
-    --soft-pink:#fbd0ee;
+    /* Professional, IBM-inspired palette: deep slate backgrounds, a single confident blue accent */
+    --purple:   #08131f;
+    --lilac:    #4589ff;
+    --pink:     #0f62fe;
+    --orange:   #d4a72c;
+    --magenta:  #4589ff;
+    --mint:     #42be65;
+    --soft-pink:#a6c8ff;
     --white:    #ffffff;
     --black:    #000000;
   }
@@ -15,8 +16,8 @@
 
   html, body {
     width: 100%; height: 100%;
-    font-family: 'Founders Grotesk', 'Aptos', 'Segoe UI', system-ui, sans-serif;
-    background: #0a0010;
+    font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+    background: #0a1420;
     overflow: hidden;
   }
 
@@ -65,33 +66,26 @@
     position: fixed;
     left: 0; right: 0; bottom: 0;
     height: 90px;
-    background: linear-gradient(180deg, transparent, rgba(6,0,12,0.55));
+    background: linear-gradient(180deg, transparent, rgba(6,12,20,0.6));
     pointer-events: none;
     z-index: 90;
   }
 
   /* ── BEAM DECORATION ── */
+  /* A restrained geometric accent (thin rule + soft glow) instead of bold neon bars. */
   .beam {
     position: absolute;
-    top: -120px; right: -100px;
-    width: 520px; height: 950px;
-    background: linear-gradient(145deg, var(--pink) 0%, var(--orange) 100%);
-    transform: rotate(-18deg);
-    transform-origin: top right;
-    opacity: 0.18;
+    top: 0; right: 0;
+    width: 1px; height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(69,137,255,0.35) 35%, rgba(69,137,255,0.35) 65%, transparent 100%);
     z-index: 0;
-    border-radius: 8px;
   }
   .beam-2 {
     position: absolute;
-    top: -60px; right: 60px;
-    width: 280px; height: 800px;
-    background: linear-gradient(145deg, var(--pink) 0%, transparent 100%);
-    transform: rotate(-18deg);
-    transform-origin: top right;
-    opacity: 0.10;
+    top: -180px; right: -180px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(15,98,254,0.16) 0%, transparent 70%);
     z-index: 0;
-    border-radius: 8px;
   }
 
   /* ── LOGO ── */
@@ -188,7 +182,7 @@
   }
   .card.accent {
     border-color: var(--pink);
-    background: rgba(251,77,195,0.08);
+    background: rgba(15,98,254,0.08);
   }
 
   /* ── LIST ── */
@@ -245,7 +239,7 @@
   }
   .flow-box.highlight {
     border-color: var(--pink);
-    background: rgba(251,77,195,0.12);
+    background: rgba(15,98,254,0.12);
   }
   .flow-box .fb-icon { font-size: 20px; margin-bottom: 6px; }
   .flow-box .fb-label { color: var(--white); font-size: 12px; font-weight: 700; line-height: 1.3; overflow-wrap: break-word; }
@@ -273,7 +267,7 @@
     border-left: 3px solid var(--pink);
     border-radius: 8px;
     padding: 20px 22px;
-    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-family: 'IBM Plex Mono', 'Cascadia Code', 'Consolas', monospace;
     font-size: 13px;
     line-height: 1.7;
     color: rgba(255,255,255,0.75);
@@ -343,9 +337,9 @@
 
   /* ── BACKGROUNDS ── */
   .bg-purple  { background: var(--purple); }
-  .bg-dark    { background: #0d0016; }
-  .bg-deeper  { background: #070010; }
-  .bg-closing { background: linear-gradient(135deg, var(--purple) 0%, #1a003a 100%); }
+  .bg-dark    { background: #0c1926; }
+  .bg-deeper  { background: #060d16; }
+  .bg-closing { background: linear-gradient(135deg, var(--purple) 0%, #0c2340 100%); }
 
   /* ── TAGLINE ── */
   .tagline {
@@ -360,11 +354,11 @@
   /* ── PILL BADGE ── */
   .badge {
     display: inline-block;
-    background: rgba(251,77,195,0.15);
+    background: rgba(15,98,254,0.15);
     border: 1px solid var(--pink);
-    color: var(--pink);
+    color: var(--soft-pink);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 4px 12px;
@@ -440,7 +434,7 @@
   .quote {
     border-left: 3px solid var(--pink);
     padding: 16px 24px;
-    background: rgba(251,77,195,0.07);
+    background: rgba(15,98,254,0.07);
     border-radius: 0 8px 8px 0;
     margin: 16px 0;
   }
