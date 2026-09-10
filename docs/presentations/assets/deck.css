@@ -35,17 +35,39 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 140px 100px 80px;
+    padding: clamp(96px, 18vh, 140px) clamp(48px, 7vw, 100px) clamp(110px, 18vh, 130px);
     opacity: 0;
     pointer-events: none;
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     transition: opacity 0.45s ease;
   }
   .slide.active {
     opacity: 1;
     pointer-events: all;
+  }
+
+  /* Thin, theme-matched scrollbar instead of the harsh default on dark backgrounds */
+  .slide { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.25) transparent; }
+  .slide::-webkit-scrollbar { width: 8px; }
+  .slide::-webkit-scrollbar-track { background: transparent; }
+  .slide::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.18);
+    border-radius: 100px;
+  }
+  .slide::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.32); }
+
+  /* Fixed scroll-fade cue so it's clear a slide has more content below the fold */
+  .deck::after {
+    content: '';
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    height: 90px;
+    background: linear-gradient(180deg, transparent, rgba(6,0,12,0.55));
+    pointer-events: none;
+    z-index: 90;
   }
 
   /* ── BEAM DECORATION ── */
@@ -201,7 +223,14 @@
     gap: 0;
     margin-top: 24px;
     flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.25) transparent;
   }
+  .flow::-webkit-scrollbar { height: 6px; }
+  .flow::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 100px; }
   .flow-box {
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.15);
@@ -246,8 +275,13 @@
     line-height: 1.7;
     color: rgba(255,255,255,0.75);
     white-space: pre;
-    overflow: hidden;
+    overflow: auto;
+    max-height: 46vh;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.25) transparent;
   }
+  .code-block::-webkit-scrollbar { width: 6px; height: 6px; }
+  .code-block::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 100px; }
   .code-block .c-key   { color: var(--pink); }
   .code-block .c-val   { color: var(--mint); }
   .code-block .c-str   { color: var(--orange); }
@@ -361,11 +395,16 @@
     font-family: inherit;
   }
   .nav button:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+  .nav button:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 2px;
+  }
   .nav .progress {
     color: rgba(255,255,255,0.5);
     font-size: 13px;
     min-width: 60px;
     text-align: center;
+    font-variant-numeric: tabular-nums;
   }
   .nav .dots {
     display: flex;
@@ -430,6 +469,26 @@
     .nav { bottom: 16px; max-width: calc(100vw - 32px); padding: 8px 12px; }
     .nav .dots { display: none; }
     .nav .progress { min-width: 54px; }
+  }
+
+  /* Shrink vertical rhythm on short viewports (windowed browsers, small laptops)
+     so content-heavy slides don't get clipped behind the floating nav. */
+  @media (max-height: 760px) {
+    .slide { padding-top: 92px; padding-bottom: 100px; }
+    .logo { top: 24px; width: 130px; }
+    h1 { font-size: clamp(34px, 4vw, 48px); margin-bottom: 16px; }
+    h2 { font-size: clamp(28px, 3.4vw, 36px); margin-bottom: 14px; }
+    .subtitle { font-size: 18px; margin-bottom: 24px; }
+    .badge { margin-bottom: 12px; }
+    .divider { margin-bottom: 16px; }
+    .cards, .challenge-grid { gap: 12px; margin-top: 4px; }
+    .card { padding: 18px 20px; }
+    .card p, .challenge-item p { font-size: 13px; }
+    .challenge-item { padding: 14px 16px; }
+    .stats { margin-top: 18px; gap: 20px; }
+    .stat { padding: 16px 14px; }
+    .code-block { font-size: 12px; padding: 16px 18px; max-height: 40vh; }
+    .tagline { margin-top: 16px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
