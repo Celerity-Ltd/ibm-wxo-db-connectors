@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agentic Control Plane | Agentic AI Academy</title>
 <link rel="stylesheet" href="assets/deck.css">
+<script src="assets/deck.js" defer></script>
 <style>
   /* Compact layout so slide 8 fits without scrolling */
-  #slide-7 { padding: 108px 100px 16px; }
+  #slide-7 { padding: clamp(78px, 13vh, 108px) 100px clamp(16px, 3vh, 24px); }
   #slide-7 .slide-content { width: 100%; }
   #slide-7 h2 { font-size: 32px; margin-bottom: 6px; }
   #slide-7 .subtitle { font-size: 14px !important; line-height: 1.35; margin-bottom: 10px !important; }
@@ -24,6 +25,12 @@
   #slide-7 > .slide-content > p[style*="font-size:11px"] { margin-top: 6px !important; line-height: 1.2; }
   #slide-7 > .slide-content > p[style*="font-size:12px"] { margin-top: 4px !important; }
   #slide-7 .tagline { display: none; }
+  @media (min-width: 801px) and (min-height: 700px) {
+    #slide-7 .slide-content { zoom: 1.22; }
+  }
+  @media (min-width: 801px) and (min-height: 900px) {
+    #slide-7 .slide-content { zoom: 1.32; }
+  }
 </style>
 </head>
 <body>
@@ -63,7 +70,6 @@
       <p style="color:rgba(255,255,255,0.5); font-size:11px; margin-top:10px;">Availability and control coverage vary by deployment and region. See the official Agentic Control Plane documentation for current support and configuration details.</p>
       <p style="font-size:12px; margin-top:6px;"><a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=operating-agentic-control-plane" target="_blank" rel="noopener noreferrer" style="color:var(--orange); text-decoration:underline;">IBM Docs: Agentic Control Plane</a> &nbsp; <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=operating-governing-assets-ai-gateway" target="_blank" rel="noopener noreferrer" style="color:var(--orange); text-decoration:underline;">AI Gateway and asset controls</a></p>
     </div>
-    <div class="tagline">Transforming Technology. Empowering People.</div>
   </div>
 </div>
 <nav class="nav" aria-label="Presentation navigation">
