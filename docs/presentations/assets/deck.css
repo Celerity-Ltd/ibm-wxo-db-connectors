@@ -234,7 +234,7 @@
   .flow::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 100px; }
   .flow-box {
     background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid var(--pink);
     border-radius: 10px;
     padding: 14px 10px;
     text-align: center;

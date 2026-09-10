@@ -6,16 +6,21 @@
 <title>What's Next | Agentic AI Academy</title>
 <link rel="stylesheet" href="assets/deck.css">
 <style>
-  /* Compact layout so slide 10 fits without scrolling */
-  #slide-8 { padding: 90px 100px 28px; }
-  #slide-8 h2 { font-size: 32px; margin-bottom: 10px; }
-  #slide-8 .two-col { margin-top: 4px; }
-  #slide-8 .bullet-list li { font-size: 14px; line-height: 1.4; padding-top: 5px; padding-bottom: 5px; }
-  #slide-8 .card { padding: 16px 18px !important; margin-bottom: 10px !important; }
-  #slide-8 .card-icon { font-size: 20px; margin-bottom: 6px; }
-  #slide-8 .card h3 { font-size: 14px; margin-bottom: 4px; }
-  #slide-8 .card p { font-size: 12px; line-height: 1.4; }
-  #slide-8 .tagline { margin-top: 10px; }
+  /* Compact flow layout matching the architecture slide */
+  #slide-8 { padding: 82px 100px 20px; }
+  #slide-8 h2 { font-size: 32px; margin-bottom: 8px; }
+  #slide-8 .subtitle { font-size: 15px !important; line-height: 1.4; margin-bottom: 14px !important; }
+  #slide-8 .next-flow { width: 784px; margin-top: 10px; }
+  #slide-8 .next-flow .flow-box { flex-basis: 138px; width: 138px; height: 126px; padding: 12px 10px; }
+  #slide-8 .next-flow .fb-icon { font-size: 20px; margin-bottom: 6px; }
+  #slide-8 .next-flow .fb-label { font-size: 12px; }
+  #slide-8 .next-flow .fb-sub { font-size: 10px; line-height: 1.35; }
+  #slide-8 .next-notes { width: 784px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 14px; }
+  #slide-8 .next-notes .card { padding: 12px 16px !important; }
+  #slide-8 .next-notes .card-icon { font-size: 20px; margin-bottom: 4px; }
+  #slide-8 .next-notes .card h3 { font-size: 14px; margin-bottom: 3px; }
+  #slide-8 .next-notes .card p { font-size: 11px; line-height: 1.35; }
+  #slide-8 .tagline { margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -30,27 +35,27 @@
       <div class="label">What's Next</div>
       <h2>Where this <span>goes</span></h2>
       <div class="divider"></div>
-      <div class="two-col">
-        <div>
-          <ul class="bullet-list">
-            <li><strong>Multi-agent database mesh</strong> – a router agent that delegates to specialist DB agents (orders, inventory, HR) based on intent.</li>
-            <li><strong>Write-back agents</strong> – agents that don't just query but update records with human-in-the-loop confirmation steps.</li>
-            <li><strong>Knowledge base hybrid</strong> – combine live DB queries with watsonx Orchestrate knowledge bases for mixed structured/unstructured answers.</li>
-            <li><strong>Voice &amp; channels</strong> – the same agent deployed to Slack, Teams, and Twilio – Bob configures all three channels via the ADK MCP.</li>
-            <li><strong>Automated regression testing</strong> – Bob generates agent test harnesses and re-runs them on every schema change.</li>
-          </ul>
+      <div class="flow next-flow">
+        <div class="flow-box highlight"><div class="fb-icon">&#x1F500;</div><div class="fb-label">Database<br>Mesh</div><div class="fb-sub">Route requests to specialist agents</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><div class="fb-icon">&#x270F;&#xFE0F;</div><div class="fb-label">Write-back<br>Agents</div><div class="fb-sub">Update records with approval</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><div class="fb-icon">&#x1F4DA;</div><div class="fb-label">Hybrid<br>Knowledge</div><div class="fb-sub">Live DB plus knowledge bases</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box"><div class="fb-icon">&#x1F399;&#xFE0F;</div><div class="fb-label">Voice &amp;<br>Channels</div><div class="fb-sub">Slack, Teams and Twilio</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box highlight"><div class="fb-icon">&#x2705;</div><div class="fb-label">Regression<br>Testing</div><div class="fb-sub">Test every schema change</div></div>
+      </div>
+      <div class="next-notes">
+        <div class="card">
+          <span class="card-icon">&#x1F52C;</span>
+          <h3>Research angle</h3>
+          <p>Can Bob self-discover database schemas through information retrieval tools, reducing setup to “connect to this DB and make it queryable”?</p>
         </div>
-        <div>
-          <div class="card" style="margin-bottom:20px;">
-            <span class="card-icon">&#x1F52C;</span>
-            <h3>Research angle</h3>
-            <p>Exploring whether Bob can self-discover database schemas via information retrieval tools – reducing human specification to just "connect to this DB and make it queryable".</p>
-          </div>
-          <div class="card accent">
-            <span class="card-icon">&#x1F4C8;</span>
-            <h3>Next validation</h3>
-            <p>Test the pattern against a real workflow, measure answer quality and control boundaries, then promote the proven toolkit into repeatable delivery.</p>
-          </div>
+        <div class="card accent">
+          <span class="card-icon">&#x1F4C8;</span>
+          <h3>Next validation</h3>
+          <p>Test a real workflow, measure answer quality and control boundaries, then promote the proven toolkit into repeatable delivery.</p>
         </div>
       </div>
     </div>
