@@ -20,6 +20,7 @@
 <div class="deck" id="deck">
   <div class="slide active bg-purple" id="slide-controls">
     <div class="beam"></div>
+    <div class="logo" id="shared-logo" role="img" aria-label="Celerity"></div>
     <div class="slide-content">
       <div class="label">Governance</div>
       <h2>Configure <span>controls</span></h2>
@@ -41,6 +42,12 @@
   (function () {
     var previousPage = '08-agent-fleet.html';
     var nextPage = '10-business-value.html';
+    fetch('08-agent-fleet.html')
+      .then(function (response) { return response.text(); })
+      .then(function (source) {
+        var logo = new DOMParser().parseFromString(source, 'text/html').querySelector('.logo svg');
+        if (logo) document.getElementById('shared-logo').appendChild(logo);
+      });
     function goTo(page) { window.location.href = page; }
     document.getElementById('btn-prev').addEventListener('click', function () { goTo(previousPage); });
     document.getElementById('btn-next').addEventListener('click', function () { goTo(nextPage); });

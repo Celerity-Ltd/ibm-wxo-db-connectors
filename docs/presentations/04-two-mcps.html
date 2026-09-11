@@ -9,6 +9,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/deck.css">
 <script src="assets/deck.js" defer></script>
+<style>
+  #slide-3 .two-col { align-items: stretch; }
+  #slide-3 .two-col > div { display: flex; }
+  #slide-3 .two-col .card { width: 100%; }
+</style>
 </head>
 <body>
 <div class="deck" id="deck">
@@ -36,7 +41,7 @@
           </div>
         </div>
         <div>
-          <div class="card" style="margin-bottom:16px; border-color:var(--orange); background:rgba(212,167,44,0.08);">
+          <div class="card" style="margin-bottom:16px;">
             <span class="card-icon">&#x2699;&#xFE0F;</span>
             <h3>watsonx Orchestrate ADK MCP</h3>
             <p style="margin-bottom:12px;">Direct programmatic access to the watsonx Orchestrate platform – Bob can act, not just advise.</p>
