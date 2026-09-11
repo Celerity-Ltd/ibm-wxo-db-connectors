@@ -10,11 +10,13 @@
 <link rel="stylesheet" href="assets/deck.css">
 <script src="assets/deck.js" defer></script>
 <style>
-  /* Keep the heading in the same position as every other slide; only tighten the dense grid below it */
-  #slide-6 .challenge-grid { gap: 12px; margin-top: 4px; }
-  #slide-6 .challenge-item { padding: 10px 16px; gap: 6px; }
-  #slide-6 .challenge-item h4 { margin-bottom: 2px; }
-  #slide-6 .challenge-item p { line-height: 1.35; }
+  #slide-6 .challenge-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 6px;
+  }
+  #slide-6 .challenge-item { padding: 15px 24px; gap: 9px; }
+  #slide-6 .challenge-item h4 { font-size: 25px; margin-bottom: 3px; }
 </style>
 </head>
 <body>
@@ -35,14 +37,6 @@
           <div class="challenge-icon">&#x1F50C;</div>
           <div>
             <h4>On-premises database connectivity</h4>
-            <p>watsonx Orchestrate runs in IBM Cloud, so firewalls block agents from reaching on-prem databases by default.</p>
-            <p style="margin-top:8px;">
-              <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=notes-regional-availability-outbound-ip-addresses"
-                 style="color:var(--orange); font-size:12px; text-decoration:underline; word-break:break-all;"
-                 target="_blank">
-                ibm.com/docs → Regional availability &amp; outbound IP addresses
-              </a>
-            </p>
           </div>
         </div>
 
@@ -50,7 +44,6 @@
           <div class="challenge-icon">&#x1F6E1;&#xFE0F;</div>
           <div>
             <h4>Access boundaries</h4>
-            <p>Database agents need explicit boundaries around network routes, credentials, and permitted operations. Connections and runtime-injected secrets keep access controlled without exposing credentials in tool code.</p>
           </div>
         </div>
 
@@ -58,28 +51,24 @@
           <div class="challenge-icon">&#x1F510;</div>
           <div>
             <h4>Credential management</h4>
-            <p>DB credentials must never appear in tool code. Solution: watsonx Orchestrate connections with <code style="color:var(--pink); font-size:12px;">@expect_credentials</code> – secrets injected at runtime, never stored in code.</p>
           </div>
         </div>
         <div class="challenge-item">
           <div class="challenge-icon">&#x1F4D0;</div>
           <div>
             <h4>Platform API drift</h4>
-            <p>The ADK evolves quickly. Without the Docs MCP, Bob would generate stale code. Live doc retrieval ensures every generated artefact matches the current platform schema.</p>
           </div>
         </div>
         <div class="challenge-item">
           <div class="challenge-icon">&#x1F9E0;</div>
           <div>
             <h4>Prompt-to-action fidelity</h4>
-            <p>Translating vague natural language into precise tool signatures and agent configs required Bob to ask clarifying questions and validate against docs before acting.</p>
           </div>
         </div>
         <div class="challenge-item">
           <div class="challenge-icon">&#x1F4E6;</div>
           <div>
             <h4>Dependency packaging</h4>
-            <p>Python tools with third-party DB drivers (ibm_db, psycopg2) need a requirements.txt. Bob auto-generates this and passes it to <code style="color:var(--pink); font-size:12px;">import_tool</code>.</p>
           </div>
         </div>
 

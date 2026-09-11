@@ -9,6 +9,111 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/deck.css">
 <script src="assets/deck.js" defer></script>
+<style>
+  /* ── Architecture lanes ── */
+  .arch-outer {
+    display: flex;
+    flex-direction: column;
+  }
+  .arch-flow-row {
+    border-radius: 16px;
+  }
+  .arch-bracket-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
+  .arch-bracket-wrap svg {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+  .arch-control-band {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 12px 0 0;
+  }
+  .arch-control-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3ddc97;
+    white-space: nowrap;
+  }
+  .arch-lane {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+  .arch-control {
+    border-left: 4px solid #3ddc97;
+    background: rgba(61,220,151,0.04);
+    border-color: rgba(61,220,151,0.2);
+  }
+  .lane-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    min-width: 100px;
+  }
+  .lane-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+  }
+  .lane-box {
+    flex: 1;
+    background: #1a2133;
+    border: 1px solid #1e3a5f;
+    border-radius: 14px;
+    padding: 26px 16px;
+    text-align: center;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  .lane-box.lane-highlight {
+    background: #1a2133;
+    border-color: #4589ff;
+    border-width: 2px;
+    color: #fff;
+  }
+  .lane-arrow {
+    color: rgba(255,255,255,0.4);
+    font-size: 20px;
+    padding: 0 14px;
+    flex-shrink: 0;
+  }
+  .lane-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  .arch-pill {
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    white-space: nowrap;
+  }
+</style>
 </head>
 <body>
 <div class="deck" id="deck">
@@ -22,48 +127,39 @@
       <div class="label">Architecture</div>
       <h2>How it <span>works</span></h2>
       <div class="divider"></div>
-      <p class="subtitle" style="margin-bottom:20px;">IBM Bob orchestrates the full agent-build lifecycle using both MCPs in sequence – reading docs to understand the platform, then acting on it directly.</p>
-      <div class="flow">
-        <div class="flow-box">
-          <div class="fb-icon">&#x1F4AC;</div>
-          <div class="fb-label">Developer<br>Prompt</div>
-          <div class="fb-sub">Natural language<br>requirement</div>
+
+      <!-- Flow + control plane as one unit -->
+      <div class="arch-outer" style="margin-top:8px;">
+        <div class="arch-lane arch-flow-row">
+          <div class="lane-flow">
+            <div class="lane-box">Developer Prompt</div>
+            <div class="lane-arrow">→</div>
+            <div class="lane-box">IBM Bob</div>
+            <div class="lane-arrow">→</div>
+            <div class="lane-box">Docs MCP</div>
+            <div class="lane-arrow">→</div>
+            <div class="lane-box">Tool Code</div>
+            <div class="lane-arrow">→</div>
+            <div class="lane-box">ADK MCP</div>
+            <div class="lane-arrow">→</div>
+            <div class="lane-box">Database</div>
+            <div class="lane-arrow">→</div>
+            <div class="lane-box">Live Agent</div>
+          </div>
         </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-box">
-          <div class="fb-icon">&#x1F916;</div>
-          <div class="fb-label">IBM Bob</div>
-          <div class="fb-sub">AI coding<br>assistant</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-box">
-          <div class="fb-icon">&#x1F4D6;</div>
-          <div class="fb-label">Docs MCP</div>
-          <div class="fb-sub">Search platform<br>docs &amp; schemas</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-box">
-          <div class="fb-icon">&#x1F40D;</div>
-          <div class="fb-label">Tool Code</div>
-          <div class="fb-sub">Python tool<br>with DB logic</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-box">
-          <div class="fb-icon">&#x2699;&#xFE0F;</div>
-          <div class="fb-label">ADK MCP</div>
-          <div class="fb-sub">Deploy tool<br>&amp; agent</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-box">
-          <div class="fb-icon">&#x1F5C4;&#xFE0F;</div>
-          <div class="fb-label">Database</div>
-          <div class="fb-sub">Db2 / PostgreSQL<br>/ MongoDB</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-box">
-          <div class="fb-icon">&#x2705;</div>
-          <div class="fb-label">Live Agent</div>
-          <div class="fb-sub">Answering real<br>queries</div>
+        <div class="arch-bracket-wrap">
+          <svg viewBox="0 0 1000 48" preserveAspectRatio="none" height="48">
+            <path d="M0,4 L0,44 Q0,48 4,48 L492,48 L500,48 L500,56 L500,48 L508,48 L996,48 Q1000,48 1000,44 L1000,4"
+              fill="none" stroke="#3ddc97" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="arch-control-band">
+            <span class="arch-control-label">Control plane</span>
+            <span class="arch-pill">Managed credentials</span>
+            <span class="arch-pill">Least privilege</span>
+            <span class="arch-pill">Query policy</span>
+            <span class="arch-pill">Audit events</span>
+            <span class="arch-pill">Approval for writes</span>
+          </div>
         </div>
       </div>
     </div>

@@ -9,11 +9,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/deck.css">
 <script src="assets/deck.js" defer></script>
-<style>
-  #slide-3 .two-col { align-items: stretch; }
-  #slide-3 .two-col > div { display: flex; }
-  #slide-3 .two-col .card { width: 100%; }
-</style>
 </head>
 <body>
 <div class="deck" id="deck">
@@ -27,30 +22,30 @@
       <div class="label">The Two MCPs</div>
       <h2>Two MCPs. <span>One build loop.</span></h2>
       <div class="divider"></div>
-      <div class="two-col">
-        <div>
-          <div class="card accent" style="margin-bottom:16px;">
-            <span class="card-icon">&#x1F4D6;</span>
-            <h3>watsonx Orchestrate Docs MCP</h3>
-            <p style="margin-bottom:12px;">Semantic search over the full IBM watsonx Orchestrate documentation library – live, contextual, always up to date.</p>
-            <ul class="bullet-list">
-              <li><strong>What IBM Bob uses it for:</strong> Looking up agent schemas, tool API contracts, connection config options, and platform behaviour before writing any code or YAML.</li>
-              <li><strong>Key capability:</strong> Grounds every generated artefact in real platform documentation – no hallucinated API shapes.</li>
-              <li><strong>Example query:</strong> <em>"How do I configure a Db2 connection for a watsonx Orchestrate tool?"</em></li>
-            </ul>
-          </div>
+      <div class="challenge-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="challenge-item">
+          <svg width="64" height="48" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="56" height="32" rx="5" stroke="#4589ff" stroke-width="1.8" fill="none" opacity="0.8"/>
+            <line x1="12" y1="20" x2="52" y2="20" stroke="#4589ff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <line x1="12" y1="28" x2="44" y2="28" stroke="#4589ff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <circle cx="54" cy="38" r="7" fill="#1e3a5f" stroke="#4589ff" stroke-width="1.5" opacity="0.9"/>
+            <line x1="51" y1="38" x2="57" y2="38" stroke="#6ab0e8" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="54" y1="35" x2="54" y2="41" stroke="#6ab0e8" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>Docs MCP</h4>
+          <p>Semantic search over the IBM watsonx Orchestrate documentation library – live, contextual, always up to date.</p>
         </div>
-        <div>
-          <div class="card" style="margin-bottom:16px;">
-            <span class="card-icon">&#x2699;&#xFE0F;</span>
-            <h3>watsonx Orchestrate ADK MCP</h3>
-            <p style="margin-bottom:12px;">Direct programmatic access to the watsonx Orchestrate platform – Bob can act, not just advise.</p>
-            <ul class="bullet-list">
-              <li><strong>What IBM Bob uses it for:</strong> Creating agents, importing Python tools, configuring connections, listing existing assets, and deploying – all from chat.</li>
-              <li><strong>Key capability:</strong> Closes the loop between design and deployment. No manual portal steps required.</li>
-              <li><strong>Example action:</strong> <em>create_or_update_agent, import_tool, configure_connection</em></li>
-            </ul>
-          </div>
+        <div class="challenge-item">
+          <svg width="64" height="48" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="24" r="10" stroke="#4589ff" stroke-width="1.8" fill="none" opacity="0.8"/>
+            <circle cx="32" cy="24" r="4" fill="#4589ff" opacity="0.7"/>
+            <rect x="29" y="4"  width="6" height="6" rx="2" fill="#4589ff" opacity="0.6"/>
+            <rect x="29" y="38" width="6" height="6" rx="2" fill="#4589ff" opacity="0.6"/>
+            <rect x="8"  y="21" width="6" height="6" rx="2" fill="#4589ff" opacity="0.6"/>
+            <rect x="50" y="21" width="6" height="6" rx="2" fill="#4589ff" opacity="0.6"/>
+          </svg>
+          <h4>ADK MCP</h4>
+          <p>Direct programmatic access to the watsonx Orchestrate platform – Bob can act, not just advise.</p>
         </div>
       </div>
     </div>

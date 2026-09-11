@@ -13,6 +13,34 @@
   #slide-5 .two-col { align-items: stretch; }
   #slide-5 .two-col > div { display: flex; flex-direction: column; }
   #slide-5 .code-block { flex: 1; }
+
+  .info-panels {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .info-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    background: #1a2133;
+    border: 1px solid #1e3a5f;
+    border-radius: 12px;
+    padding: 28px 26px;
+    text-align: center;
+  }
+  .info-panel strong {
+    display: block;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .info-panel span {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -27,10 +55,13 @@
       <div class="label">Implementation</div>
       <h2>The DB2 connector exposes a <span>real tool</span></h2>
       <div class="divider"></div>
-      <div class="two-col" style="gap:32px;">
-        <div>
-            <p style="color:rgba(255,255,255,0.65); margin-bottom:12px;">The tool declares its contract and the managed IBM i DB2 connection:</p>
-          <div class="code-block" style="line-height:1.5; white-space:pre-wrap;"><span class="c-cmt"># Bob-generated: watsonx Orchestrate tool</span>
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:stretch;">
+
+        <!-- Left: two code blocks stacked -->
+        <div style="display:flex; flex-direction:column; gap:20px; flex:3;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <p style="color:rgba(255,255,255,0.65); margin:0; text-align:left;">The tool declares its contract and the managed IBM i DB2 connection:</p>
+            <div class="code-block" style="line-height:1.5; white-space:pre-wrap;"><span class="c-cmt"># Bob-generated: watsonx Orchestrate tool</span>
 <span class="c-key">from</span> ibm_watsonx_orchestrate.agent_builder.tools <span class="c-key">import</span> tool
       <span class="c-key">from</span> ibm_watsonx_orchestrate.agent_builder.connections <span class="c-key">import</span> (
         ConnectionType, ExpectedCredentials
@@ -49,10 +80,10 @@
       )
       <span class="c-key">def</span> execute_db2_sql_query(sql_query: <span class="c-val">str</span>) -> <span class="c-val">str</span>:
         <span class="c-str">"""Execute SQL against the connected IBM DB2 database."""</span></div>
-        </div>
-        <div>
-          <p style="color:rgba(255,255,255,0.65); margin-bottom:12px;">At runtime, Mapepire connects, limits the result set, and returns JSON:</p>
-          <div class="code-block" style="line-height:1.5; white-space:pre-wrap;"><span class="c-cmt"># Runtime execution through Mapepire</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <p style="color:rgba(255,255,255,0.65); margin:0; text-align:left;">At runtime, Mapepire connects, limits the result set, and returns JSON:</p>
+            <div class="code-block" style="line-height:1.5; white-space:pre-wrap;"><span class="c-cmt"># Runtime execution through Mapepire</span>
 
 <span class="c-key">from</span> ibm_watsonx_orchestrate.run <span class="c-key">import</span> connections
 <span class="c-key">from</span> mapepire_python.client.sql_job <span class="c-key">import</span> SQLJob
@@ -70,7 +101,33 @@ job = SQLJob()
 job.connect(server)
 result = job.query_and_run(sql_query, rows_to_fetch=<span class="c-val">100</span>)
 <span class="c-key">return</span> json.dumps(result.data, default=<span class="c-key">str</span>)</div>
+          </div>
         </div>
+
+        <!-- Right: vertical brace spanning full height + panels centred beside it -->
+        <div style="display:flex; flex-direction:row; align-items:stretch; flex:2;">
+          <!-- Brace stretches full height of the left column -->
+          <svg viewBox="0 0 48 200" preserveAspectRatio="none" style="width:24px; flex-shrink:0; display:block; height:100%;">
+            <path d="M44,4 L28,4 Q24,4 24,8 L24,92 Q24,100 16,100 Q24,100 24,108 L24,192 Q24,196 28,196 L44,196"
+              fill="none" stroke="#4589ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <!-- Panels centred vertically -->
+          <div style="display:flex; flex-direction:column; justify-content:center; flex:1; gap:10px; padding-left:4px;">
+            <div class="info-panel">
+              <strong>Identity</strong>
+            </div>
+            <div class="info-panel">
+              <strong>Contract</strong>
+            </div>
+            <div class="info-panel">
+              <strong>Transport</strong>
+            </div>
+            <div class="info-panel">
+              <strong>Execution</strong>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
