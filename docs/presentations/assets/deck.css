@@ -1,7 +1,7 @@
 
   :root {
-    /* Professional, IBM-inspired palette: deep slate backgrounds, a single confident blue accent */
-    --purple:   #08131f;
+    /* Restrained IBM-inspired palette for a classic presentation treatment. */
+    --purple:   #161616;
     --lilac:    #4589ff;
     --pink:     #0f62fe;
     --orange:   #d4a72c;
@@ -17,7 +17,7 @@
   html, body {
     width: 100%; height: 100%;
     font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
-    background: #0a1420;
+    background: #161616;
     overflow: hidden;
   }
 
@@ -56,7 +56,7 @@
   .slide::-webkit-scrollbar-track { background: transparent; }
   .slide::-webkit-scrollbar-thumb {
     background: rgba(255,255,255,0.18);
-    border-radius: 100px;
+    border-radius: 0;
   }
   .slide::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.32); }
 
@@ -71,21 +71,16 @@
     z-index: 90;
   }
 
-  /* ── BEAM DECORATION ── */
-  /* A restrained geometric accent (thin rule + soft glow) instead of bold neon bars. */
+  /* ── FRAME ACCENT ── */
   .beam {
     position: absolute;
-    top: 0; right: 0;
-    width: 1px; height: 100%;
-    background: linear-gradient(180deg, transparent 0%, rgba(69,137,255,0.35) 35%, rgba(69,137,255,0.35) 65%, transparent 100%);
+    top: 0; left: 0;
+    width: 100%; height: 8px;
+    background: var(--pink);
     z-index: 0;
   }
   .beam-2 {
-    position: absolute;
-    top: -180px; right: -180px;
-    width: 480px; height: 480px;
-    background: radial-gradient(circle, rgba(15,98,254,0.16) 0%, transparent 70%);
-    z-index: 0;
+    display: none;
   }
 
   /* ── LOGO ── */
@@ -159,15 +154,13 @@
   .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
 
   .card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
+    background: transparent;
+    border: 1px solid #525252;
+    border-radius: 0;
     padding: 28px 28px;
   }
   .card-icon {
-    font-size: 28px;
-    margin-bottom: 12px;
-    display: block;
+    display: none;
   }
   .card h3 {
     color: var(--white);
@@ -182,7 +175,7 @@
   }
   .card.accent {
     border-color: var(--pink);
-    background: rgba(15,98,254,0.08);
+    background: transparent;
   }
 
   /* ── LIST ── */
@@ -228,9 +221,9 @@
   .flow::-webkit-scrollbar { height: 6px; }
   .flow::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 100px; }
   .flow-box {
-    background: rgba(255,255,255,0.07);
+    background: transparent;
     border: 1px solid var(--pink);
-    border-radius: 10px;
+    border-radius: 0;
     padding: 14px 10px;
     text-align: center;
     flex: 0 0 128px;
@@ -239,9 +232,9 @@
   }
   .flow-box.highlight {
     border-color: var(--pink);
-    background: rgba(15,98,254,0.12);
+    background: transparent;
   }
-  .flow-box .fb-icon { font-size: 20px; margin-bottom: 6px; }
+  .flow-box .fb-icon { display: none; }
   .flow-box .fb-label { color: var(--white); font-size: 12px; font-weight: 700; line-height: 1.3; overflow-wrap: break-word; }
   .flow-box .fb-sub { color: rgba(255,255,255,0.45); font-size: 10px; margin-top: 4px; overflow-wrap: break-word; }
   .flow-arrow {
@@ -298,12 +291,12 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 12px;
+    background: transparent;
+    border-radius: 0;
     padding: 20px 22px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #525252;
   }
-  .challenge-icon { font-size: 26px; }
+  .challenge-icon { display: none; }
   .challenge-item h4 { color: var(--white); font-size: 15px; font-weight: 700; }
   .challenge-item p  { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.5; }
 
@@ -317,8 +310,8 @@
   .stat {
     flex: 1;
     min-width: 160px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
+    background: transparent;
+    border-radius: 0;
     padding: 24px 20px;
     border-top: 3px solid var(--pink);
     text-align: center;
@@ -337,10 +330,7 @@
   }
 
   /* ── BACKGROUNDS ── */
-  .bg-purple  { background: var(--purple); }
-  .bg-dark    { background: #0c1926; }
-  .bg-deeper  { background: #060d16; }
-  .bg-closing { background: linear-gradient(135deg, var(--purple) 0%, #0c2340 100%); }
+  .bg-purple, .bg-dark, .bg-deeper, .bg-closing { background: var(--purple); }
 
   /* ── TAGLINE ── */
   .tagline {
@@ -352,18 +342,18 @@
     margin-top: 40px;
   }
 
-  /* ── PILL BADGE ── */
+  /* ── SECTION BADGE ── */
   .badge {
     display: inline-block;
-    background: rgba(15,98,254,0.15);
-    border: 1px solid var(--pink);
-    color: var(--soft-pink);
+    border: 0;
+    border-left: 3px solid var(--pink);
+    color: rgba(255,255,255,0.7);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 100px;
+    padding: 2px 0 2px 12px;
+    border-radius: 0;
     margin-bottom: 18px;
   }
 
@@ -377,11 +367,10 @@
     align-items: center;
     gap: 12px;
     z-index: 100;
-    background: rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 100px;
+    background: #262626;
+    border: 1px solid #525252;
+    border-radius: 0;
     padding: 10px 20px;
-    backdrop-filter: blur(8px);
   }
   .nav button {
     background: none;
@@ -426,8 +415,8 @@
   /* ── DIVIDER LINE ── */
   .divider {
     width: 60px; height: 3px;
-    background: linear-gradient(90deg, var(--pink), var(--orange));
-    border-radius: 2px;
+    background: var(--pink);
+    border-radius: 0;
     margin-bottom: 24px;
   }
 
@@ -435,8 +424,8 @@
   .quote {
     border-left: 3px solid var(--pink);
     padding: 16px 24px;
-    background: rgba(15,98,254,0.07);
-    border-radius: 0 8px 8px 0;
+    background: transparent;
+    border-radius: 0;
     margin: 16px 0;
   }
   .quote p {
