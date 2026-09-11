@@ -287,7 +287,8 @@
   /* ── CHALLENGE CARDS (matches .card styling used elsewhere in the deck) ── */
   .challenge-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* --challenge-min-col is narrowed by deck.js when content would otherwise need to scroll */
+    grid-template-columns: repeat(auto-fit, minmax(var(--challenge-min-col, 280px), 1fr));
     grid-auto-rows: 1fr;
     gap: 16px;
     margin-top: 8px;
