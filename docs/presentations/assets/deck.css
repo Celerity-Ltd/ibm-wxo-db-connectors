@@ -214,12 +214,11 @@
     flex-wrap: nowrap;
     max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     padding-bottom: 8px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.25) transparent;
+    scrollbar-width: none;
   }
-  .flow::-webkit-scrollbar { height: 6px; }
-  .flow::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 100px; }
+  .flow::-webkit-scrollbar { display: none; }
   .flow-box {
     background: transparent;
     border: 1px solid var(--pink);
@@ -452,7 +451,8 @@
     .subtitle { font-size: 18px; }
     .cards-2, .cards-3, .two-col, .challenge-grid { grid-template-columns: 1fr; }
     .flow { align-items: stretch; flex-direction: column; }
-    .flow-arrow { padding: 2px 0; text-align: center; transform: rotate(90deg); }
+    .flow-arrow { padding: 2px 0; text-align: center; }
+    .flow > .flow-arrow { animation-name: flow-arrow-motion-mobile; }
     .flow-box { width: 100%; }
     .slide-content > div[style*="display:flex"] { flex-direction: column; gap: 24px !important; }
     .nav { bottom: 16px; max-width: calc(100vw - 32px); padding: 8px 12px; }
@@ -511,3 +511,86 @@
 
 /* Each page contains one visible slide. */
 .slide { opacity: 1; pointer-events: all; }
+
+/* ── ENTRANCE ANIMATION ── */
+@keyframes slide-reveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes beam-reveal {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes logo-reveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flow-arrow-motion {
+  0% { opacity: 0; transform: translateX(-6px); }
+  15%, 62% { opacity: 1; transform: translateX(0); }
+  76% { opacity: 1; transform: translateX(5px); }
+  88%, 100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes flow-arrow-motion-mobile {
+  0% { opacity: 0; transform: rotate(90deg) translateX(-6px); }
+  15%, 62% { opacity: 1; transform: rotate(90deg) translateX(0); }
+  76% { opacity: 1; transform: rotate(90deg) translateX(5px); }
+  88%, 100% { opacity: 1; transform: rotate(90deg) translateX(0); }
+}
+
+.beam {
+  transform-origin: left center;
+  animation: beam-reveal 500ms ease-out both;
+}
+
+.logo {
+  animation: logo-reveal 420ms ease-out 100ms both;
+}
+
+.label, h1, h2, .divider, .subtitle, .quote, .cards, .stats,
+.two-col, .challenge-grid, .flow, .governance-screen, .control-screen,
+.tagline, .meta {
+  animation: slide-reveal 480ms ease-out both;
+}
+
+.label, h1, h2 { animation-delay: 140ms; }
+.divider { animation-delay: 230ms; }
+.subtitle { animation-delay: 300ms; }
+.quote, .two-col, .flow, .governance-screen, .control-screen, .tagline, .meta { animation-delay: 380ms; }
+.cards, .stats, .challenge-grid { animation-delay: 440ms; }
+
+.cards > *, .stats > *, .challenge-grid > *, .flow > * {
+  animation: slide-reveal 420ms ease-out both;
+}
+.cards > *:nth-child(1), .stats > *:nth-child(1), .challenge-grid > *:nth-child(1), .flow > *:nth-child(1) { animation-delay: 500ms; }
+.cards > *:nth-child(2), .stats > *:nth-child(2), .challenge-grid > *:nth-child(2), .flow > *:nth-child(2) { animation-delay: 570ms; }
+.cards > *:nth-child(3), .stats > *:nth-child(3), .challenge-grid > *:nth-child(3), .flow > *:nth-child(3) { animation-delay: 640ms; }
+.cards > *:nth-child(4), .stats > *:nth-child(4), .challenge-grid > *:nth-child(4), .flow > *:nth-child(4) { animation-delay: 710ms; }
+.cards > *:nth-child(5), .stats > *:nth-child(5), .challenge-grid > *:nth-child(5), .flow > *:nth-child(5) { animation-delay: 780ms; }
+.cards > *:nth-child(6), .stats > *:nth-child(6), .challenge-grid > *:nth-child(6), .flow > *:nth-child(6) { animation-delay: 850ms; }
+.cards > *:nth-child(7), .stats > *:nth-child(7), .challenge-grid > *:nth-child(7), .flow > *:nth-child(7) { animation-delay: 920ms; }
+.cards > *:nth-child(8), .stats > *:nth-child(8), .challenge-grid > *:nth-child(8), .flow > *:nth-child(8) { animation-delay: 990ms; }
+.cards > *:nth-child(9), .stats > *:nth-child(9), .challenge-grid > *:nth-child(9), .flow > *:nth-child(9) { animation-delay: 1060ms; }
+.cards > *:nth-child(10), .stats > *:nth-child(10), .challenge-grid > *:nth-child(10), .flow > *:nth-child(10) { animation-delay: 1130ms; }
+.cards > *:nth-child(11), .stats > *:nth-child(11), .challenge-grid > *:nth-child(11), .flow > *:nth-child(11) { animation-delay: 1200ms; }
+.cards > *:nth-child(12), .stats > *:nth-child(12), .challenge-grid > *:nth-child(12), .flow > *:nth-child(12) { animation-delay: 1270ms; }
+.cards > *:nth-child(13), .stats > *:nth-child(13), .challenge-grid > *:nth-child(13), .flow > *:nth-child(13) { animation-delay: 1340ms; }
+
+.flow > .flow-arrow {
+  animation-name: flow-arrow-motion;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beam, .logo, .label, h1, h2, .divider, .subtitle, .quote, .cards,
+  .stats, .two-col, .challenge-grid, .flow, .governance-screen,
+  .control-screen, .tagline, .meta, .cards > *, .stats > *,
+  .challenge-grid > *, .flow > * {
+    animation: none;
+  }
+}
