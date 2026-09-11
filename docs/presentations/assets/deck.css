@@ -155,7 +155,7 @@
 
   .card {
     background: transparent;
-    border: 1px solid #525252;
+    border: 1px solid var(--pink);
     border-radius: 0;
     padding: 28px 28px;
   }
@@ -294,7 +294,7 @@
     background: transparent;
     border-radius: 0;
     padding: 20px 22px;
-    border: 1px solid #525252;
+    border: 1px solid var(--pink);
   }
   .challenge-icon { display: none; }
   .challenge-item h4 { color: var(--white); font-size: 15px; font-weight: 700; }
@@ -313,7 +313,7 @@
     background: transparent;
     border-radius: 0;
     padding: 24px 20px;
-    border-top: 3px solid var(--pink);
+    border: 1px solid var(--pink);
     text-align: center;
   }
   .stat .stat-val {

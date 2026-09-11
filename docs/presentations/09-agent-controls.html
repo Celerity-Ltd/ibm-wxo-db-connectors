@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Controls | Agentic AI Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/deck.css">
+<script src="assets/deck.js" defer></script>
+<style>
+  #slide-controls .slide-content { width: 100%; max-width: 1040px; }
+  #slide-controls .control-screen { margin: 24px 0 0; }
+  #slide-controls .control-screen img { display: block; width: 100%; height: auto; background: #ffffff; border: 1px solid var(--pink); }
+  #slide-controls .control-screen figcaption { color: rgba(255,255,255,0.75); font-size: 14px; font-weight: 600; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+  <div class="slide active bg-purple" id="slide-controls">
+    <div class="beam"></div>
+    <div class="slide-content">
+      <div class="label">Governance</div>
+      <h2>Configure <span>controls</span></h2>
+      <div class="divider"></div>
+      <p class="subtitle" style="margin-bottom:0;">Apply policies for sensitive data and define how agents and tools operate across the fleet.</p>
+      <figure class="control-screen">
+        <img src="../images/Create%20Control.png" alt="Agentic Control Plane create control screen">
+        <figcaption>Configure and apply controls to agents and tools</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+<nav class="nav" aria-label="Presentation navigation">
+  <button type="button" id="btn-prev" title="Previous slide" aria-label="Previous slide">&#8592;</button>
+  <span class="progress">9 / 13</span>
+  <button type="button" id="btn-next" title="Next slide" aria-label="Next slide">&#8594;</button>
+</nav>
+<script>
+  (function () {
+    var previousPage = '08-agent-fleet.html';
+    var nextPage = '10-business-value.html';
+    function goTo(page) { window.location.href = page; }
+    document.getElementById('btn-prev').addEventListener('click', function () { goTo(previousPage); });
+    document.getElementById('btn-next').addEventListener('click', function () { goTo(nextPage); });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') goTo(previousPage);
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') goTo(nextPage);
+    });
+  })();
+</script>
+</body>
+</html>
